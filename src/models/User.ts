@@ -40,14 +40,14 @@ const userSchema: Schema<IUser> = new mongoose.Schema({
 }, { timestamps: true });
 
 // Pre-save hook for hashing password
-userSchema.pre('save', async function (next: (err?: Error) => void) {
+userSchema.pre('save', async function (next: any) {
     const user = this as IUser;
     if (!user.isModified('password')) return next();
     try {
         user.password = await bcrypt.hash(user.password, 10);
         next();
     } catch (error) {
-        next(error as Error);
+        next(error);
     }
 });
 
