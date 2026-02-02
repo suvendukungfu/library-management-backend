@@ -30,7 +30,7 @@ const userSchema: Schema<IUser> = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Password is required'] as any
+        required: [true, 'Password is required']
     },
     role: {
         type: String,
@@ -40,11 +40,15 @@ const userSchema: Schema<IUser> = new mongoose.Schema({
 }, { timestamps: true });
 
 // Pre-save hook for hashing password
-userSchema.pre('save', async function (next: any) {
+userSchema.pre('save', async function (next: (err?: Error) => void) {
     const user = this as IUser;
     if (!user.isModified('password')) return next();
-    user.password = await bcrypt.hash(user.password, 10);
-    next();
+    try {
+        user.password = await bcrypt.hash(user.password, 10);
+        next();
+    } catch (error) {
+        next(error as Error);
+    }
 });
 
 // Method to check password
