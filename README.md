@@ -2,13 +2,13 @@
 
 A complete, production-ready CRUD backend application tailored for a **Library Management System**. Built with **Node.js, Express.js, and MongoDB**, strictly following **Object-Oriented Programming (OOP)** principles and a **Clean Layered Architecture**.
 
-## 💡 The Concept: "Digital Librarian"
+##  The Concept: "Digital Librarian"
 
 This system is designed as a central brain for a library's digital operations, solving two core problems: **Inventory** and **Access**.
 
 ### 1. The Roles (Actors)
-- **🦸‍♂️ The Librarian (Admin)**: Holds the keys. They can **Add** new books, **Update** records, and **Remove** inventory.
-- **👤 The Member (User)**: The reader. They can **Search**, **Filter**, and **Browse** the catalog but cannot modify it.
+- ** The Librarian (Admin)**: Holds the keys. They can **Add** new books, **Update** records, and **Remove** inventory.
+- ** The Member (User)**: The reader. They can **Search**, **Filter**, and **Browse** the catalog but cannot modify it.
 
 ### 2. Smart Cataloging
 Instead of a static list, this API implements:
@@ -16,7 +16,7 @@ Instead of a static list, this API implements:
 - **Filtering**: Drill down by Category (e.g., "Fiction") or Year.
 - **Pagination**: Efficiently handles large datasets.
 
-## 🚀 Features
+##  Features
 
 - **Object-Oriented Design**: All layers (Controllers, Services, Repositories) are implemented as classes.
 - **Layered Architecture**: Separation of concerns (`Controller` -> `Service` -> `Repository` -> `Model`).
@@ -27,7 +27,7 @@ Instead of a static list, this API implements:
 - **Error Handling**: Centralized error handling with custom `ApiError` class.
 - **Security**: Helmet headers, CORS enabled, Password Hashing (bcrypt).
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Runtime**: Node.js
 - **Language**: TypeScript
@@ -37,7 +37,7 @@ Instead of a static list, this API implements:
 - **Validation**: express-validator
 - **Utils**: dotenv, cors, helmet, morgan
 
-## 📂 Folder Structure
+##  Folder Structure
 
 ```
 src/
@@ -52,7 +52,7 @@ src/
  └── app.ts            # App Entry Point
 ```
 
-## 🔧 Setup Instructions
+##  Setup Instructions
 
 1. **Clone the repository**
    ```bash
@@ -87,7 +87,7 @@ src/
      npm start
      ```
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Authentication
 | Method | Endpoint          | Description             | Auth Required |
@@ -105,7 +105,7 @@ src/
 | PUT    | `/api/v1/books/:id`     | Update a book                      | ✅ (Admin) |
 | DELETE | `/api/v1/books/:id`     | Delete a book                      | ✅ (Admin) |
 
-## 🧪 Sample API Requests
+##  Sample API Requests
 
 **1. Create Book (Admin)**
 *Header: `Authorization: Bearer <token>`*
@@ -126,7 +126,7 @@ POST /api/v1/books
 GET /api/v1/books?search=Clean&category=Technology&sort=publishedYear:desc&page=1&limit=5
 ```
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - **Unit Testing**: Add Jest/Supertest for automated testing.
 - **Rate Limiting**: Prevent abuse using `express-rate-limit`.
